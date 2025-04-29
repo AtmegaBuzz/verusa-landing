@@ -43,27 +43,41 @@ const HeroSection = () => {
         </video>
       ))}
 
-      <div className="absolute inset-0 bg-black/30"></div>
-      <div className="w-[70%]">
-        <div className="relative z-10 px-6 py-24 text-white">
-          <h1 className="text-8xl font-bold leading-tight md:text-9xl">verusa</h1>
-          <h1 className="mb-8 text-8xl font-bold leading-tight md:text-9xl">vanguard</h1>
+      <div className="absolute inset-0 bg-black/30 sm:bg-black/30 md:bg-black/30"></div>
+      
+      {/* Main content container - adjusted for responsive widths */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:w-[80%] xl:w-[70%]">
+        <div className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 text-white">
+          {/* Responsive typography */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight">verusa</h1>
+          <h1 className="mb-4 sm:mb-6 md:mb-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight">vanguard</h1>
+          
           <div className="">
-            <p className="mb-1 text-2xl font-light md:text-3xl">Improving Stablecoin Compliance with Agentic Workflows</p>
-            <p className="mb-12 text-2xl font-light md:text-3xl">AI-Powered Dual Engine for Compliance & Market Protection.</p>
+            <p className="mb-1 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light">
+              Improving Stablecoin Compliance with Agentic Workflows
+            </p>
+            <p className="mb-8 sm:mb-10 md:mb-12 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light">
+              AI-Powered Dual Engine for Compliance & Market Protection.
+            </p>
             
-            <LayeredButton width={180} height={50}/>
+            {/* Responsive button size */}
+            <div className="sm:mt-2 md:mt-4">
+              <LayeredButton 
+                width={window.innerWidth < 640 ? 150 : 180} 
+                height={window.innerWidth < 640 ? 40 : 50}
+              />
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Optional: Video indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+      {/* Optional: Video indicators - adjusted position for mobile */}
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
         {videos.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentVideo(index)}
-            className={`w-3 h-3 rounded-full ${
+            className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full ${
               index === currentVideo ? "bg-white" : "bg-white/40"
             }`}
             aria-label={`Switch to video ${index + 1}`}
