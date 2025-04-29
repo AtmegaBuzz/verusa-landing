@@ -2,8 +2,8 @@ import { useState } from "react";
 import Workflow from "../assets/workflow.png";
 
 const FeaturesSection = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [expandedSection, setExpandedSection] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [expandedSection, setExpandedSection] = useState<number | null>(null);
 
   const texts = [
     { main: 'detect', sub: 'swiftly' },
