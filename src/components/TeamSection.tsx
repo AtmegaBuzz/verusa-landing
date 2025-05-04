@@ -63,57 +63,66 @@ const teamMembers: TeamMember[] = [
 
 export default function TeamsSection() {
   return (
-    <div className="w-full bg-gradient-to-b from-[#f8a08c] to-[#87BAAB] py-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">our team</h2>
-          <p className="text-white/90 max-w-2xl text-lg md:text-xl">
-            Passionate experts dedicated to transforming innovative ideas into successful enterprises.
-          </p>
-        </motion.div>
+    <div className="w-full relative">
+      {/* Base background gradient */}
+      <div className="absolute inset-0 bg-[#85BBAD]"></div>
 
-        {/* Masonry-style grid for desktop */}
-        <div className="hidden md:block">
-          <div className="grid grid-cols-4 gap-4">
-            <div className="col-span-2 row-span-2">
-              <TeamCard member={teamMembers[0]} featured />
-            </div>
-            <div className="col-span-1">
-              <TeamCard member={teamMembers[1]} />
-            </div>
-            <div className="col-span-1">
-              <TeamCard member={teamMembers[2]} />
-            </div>
-            <div className="col-span-1 row-span-2">
-              <TeamCard member={teamMembers[3]} />
-            </div>
-            <div className="col-span-1">
-              <TeamCard member={teamMembers[4]} />
-            </div>
-            <div className="col-span-2">
-              <TeamCard member={teamMembers[5]} />
-            </div>
-            <div className="col-span-1">
-              <TeamCard member={teamMembers[6]} />
-            </div>
-            <div className="col-span-1">
-              <TeamCard member={teamMembers[7]} />
+      {/* Top gradient section */}
+      <div className="absolute top-0 left-0 right-0 h-1/5 bg-gradient-to-b from-[#FE9F8D] to-[#85BBAD] pointer-events-none"></div>
+
+      {/* Content container */}
+      <div className="relative z-10 py-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">Build with us</h2>
+            <p className="text-gray/90 max-w-2xl text-lg md:text-xl">
+              Passionate experts dedicated to transforming innovative ideas into successful enterprises.
+            </p>
+          </motion.div>
+
+          {/* Masonry-style grid for desktop */}
+          <div className="hidden md:block">
+            <div className="grid grid-cols-4 gap-4">
+              <div className="col-span-2 row-span-2">
+                <TeamCard member={teamMembers[0]} featured />
+              </div>
+              <div className="col-span-1">
+                <TeamCard member={teamMembers[1]} />
+              </div>
+              <div className="col-span-1">
+                <TeamCard member={teamMembers[2]} />
+              </div>
+              <div className="col-span-1 row-span-2">
+                <TeamCard member={teamMembers[3]} />
+              </div>
+              <div className="col-span-1">
+                <TeamCard member={teamMembers[4]} />
+              </div>
+              <div className="col-span-2">
+                <TeamCard member={teamMembers[5]} />
+              </div>
+              <div className="col-span-1">
+                <TeamCard member={teamMembers[6]} />
+              </div>
+              <div className="col-span-1">
+                <TeamCard member={teamMembers[7]} />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Simplified grid for mobile */}
-        <div className="md:hidden">
-          <div className="grid grid-cols-2 gap-4">
-            {teamMembers.map((member) => (
-              <TeamCard key={member.id} member={member} />
-            ))}
+          {/* Simplified grid for mobile */}
+          <div className="md:hidden">
+            <div className="grid grid-cols-2 gap-4">
+              {teamMembers.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

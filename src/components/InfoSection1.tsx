@@ -4,8 +4,14 @@ import { motion } from "framer-motion"
 
 export function VentureStudio() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#83BBAD] via-[#f8a08c] to-[#f8a08c] flex items-center justify-center p-4 md:p-8">
-      <div className="w-[70%] h-full bg-transparent">
+    <div className="min-h-screen w-full relative flex items-center justify-center p-4 md:p-8">
+      {/* Base background color */}
+      <div className="absolute inset-0 bg-[#f8a08c]"></div>
+
+      {/* Gradient overlay for top 20% */}
+      <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-b from-[#0FA8B9] to-[#f8a08c] pointer-events-none"></div>
+
+      <div className="w-[70%] h-full bg-transparent relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 md:mb-24">
             <h1 className="text-5xl md:text-7xl font-bold text-black mb-8">
